@@ -14,21 +14,29 @@ public class Inputs : MonoBehaviour
     }
     public void OnLeftInput(InputAction.CallbackContext context)
     {
-        movement.Direction = Vector2.left;
+        if (context.phase == InputActionPhase.Performed) {
+            movement.Direction = Vector2.left;
+        }
     }
 
     public void OnRightInput(InputAction.CallbackContext context)
     {
-        movement.Direction = Vector2.right;
+        if (context.phase == InputActionPhase.Performed) {
+            movement.Direction = Vector2.right;
+        }
     }
 
     public void OnUpInput(InputAction.CallbackContext context)
     {
-        movement.Direction = Vector2.up;
+        if (context.phase == InputActionPhase.Performed) {
+            movement.Direction = Vector2.up;
+        }
     }
 
     public void OnDownInput(InputAction.CallbackContext context)
     {
-        movement.Direction = Vector2.down;
+        if (context.phase == InputActionPhase.Performed) {
+            movement.Direction = Vector2.down;
+        }
     }
 }

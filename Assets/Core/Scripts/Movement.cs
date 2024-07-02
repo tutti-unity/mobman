@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Movement : MonoBehaviour, IMovement
 {
     public Vector2 Direction { get; set; } = Vector2.right;
     [SerializeField] 
