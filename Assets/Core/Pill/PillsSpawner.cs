@@ -14,3 +14,29 @@ public class PillsSpawner : MonoBehaviour
         }
     }
 }
+
+#if UNITY_EDITOR
+[UnityEditor.CustomEditor(typeof(PillsSpawner))]
+public class PillsSpawnerEditor : UnityEditor.Editor
+{
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        var spawner = (PillsSpawner) target;
+        if (GUILayout.Button("Generate grid"))
+        {
+            var spawnPoints = serializedObject.FindProperty("spawnPoints");
+            spawnPoints.ClearArray();
+            for (var x = 0; x < 10; x++)
+            {
+                for (var y = 0; y < 10; y++)
+                {
+                    spawnPoints.InsertArrayElementAtIndex(0);
+                    spawnPoints.GetArrayElementAtIndex(0).vector3Value = new Vector3(x, y, 0);
+                }
+            }
+            serializedObject.ApplyModifiedProperties();
+        }
+    }
+}
+#endif
