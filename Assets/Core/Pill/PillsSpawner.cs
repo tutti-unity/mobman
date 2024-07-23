@@ -43,7 +43,7 @@ public class PillsSpawnerEditor : UnityEditor.Editor
         cellSize = EditorGUILayout.FloatField("Gap", cellSize);
         gridSize = EditorGUILayout.Vector2IntField("Grid size", gridSize);
         
-        if (GUILayout.Button("Generate grid"))
+        if (GUILayout.Button("Generate grid") && EditorUtility.DisplayDialog("Generate grid", "Are you sure?", "Yes", "No"))
         {
             var spawnPoints = serializedObject.FindProperty("spawnPoints");
             spawnPoints.ClearArray();
