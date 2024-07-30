@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Inputs : MonoBehaviour
 {
-
     private Movement movement;
     private Vector2 nextDirection = Vector2.right;
     [SerializeField]
@@ -68,6 +65,7 @@ public class Inputs : MonoBehaviour
     }
 
     void OnDrawGizmos() {
+        movement = GetComponent<Movement>();
         Vector3 d = movement.Direction;
         Gizmos.color = CanGo(d) ? Color.green : Color.red;
         Gizmos.DrawLine(
